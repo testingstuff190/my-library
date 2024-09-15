@@ -22,7 +22,7 @@ def uploadAppToFirebase(String appName, String appBinary, String firebaseAppId, 
         //     echo "CHANGELOG:" + CHANGELOG
         //     firebaseUploadParams += " --release-notes-file ${CHANGELOG}"
         // }
-        sh "resources/scripts/myFunction.sh ${firebaseUploadParams}"
+        sh "./myFunction.sh ${firebaseUploadParams}"
     }
     echo "### sharedTools.uploadAppToFirebase - END"
 }

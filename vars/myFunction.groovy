@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 
 def uploadAppToFirebase(String appName, String appBinary, String firebaseAppId, String distributionGroup = "testers", boolean withReleaseNotes = false, String releaseNotesFile = "") {
+    String scriptContent = libraryResource('scripts/myFunction.sh')
+    writeFile file: 'myFunction.sh', text: scriptContent
     echo "### sharedTools.uploadAppToFirebase - appName: ${appName}"
     script {
         // set msAppCenter distribution group for MVA10 apps only [MVACoreApp]

@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+
 def uploadAppToFirebase(String appName, String appBinary, String firebaseAppId, String distributionGroup = "testers", boolean withReleaseNotes = false, String releaseNotesFile = "") {
     echo "### sharedTools.uploadAppToFirebase - appName: ${appName}"
     script {
@@ -19,7 +20,7 @@ def uploadAppToFirebase(String appName, String appBinary, String firebaseAppId, 
         //     echo "CHANGELOG:" + CHANGELOG
         //     firebaseUploadParams += " --release-notes-file ${CHANGELOG}"
         // }
-        execute("resources/scripts/myFunction.sh", firebaseUploadParams)
+        sh "resources/scripts/myFunction.sh ${firebaseUploadParams}"
     }
     echo "### sharedTools.uploadAppToFirebase - END"
 }
